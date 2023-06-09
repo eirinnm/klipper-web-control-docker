@@ -2,3 +2,4 @@ printer.cfg
 !config/printer.cfg
 .config
 build
+config/.moonraker.conf.bkp

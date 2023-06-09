@@ -102,7 +102,7 @@ ENV LANGUAGE en_GB:en
 
 ARG USER=klippy
 ARG HOME=/home/${USER}
-ENV CONFIG_DIR=${HOME}/.config
+ENV CONFIG_DIR=${HOME}/printer_data/config
 ENV KLIPPER_VENV_DIR=${HOME}/klippy-env
 ENV MOONRAKER_VENV_DIR=${HOME}/moonraker-env
 
@@ -131,9 +131,9 @@ RUN pip install --no-index -f ${WHEELS} supervisord-dependent-startup gpiod nump
 USER ${USER}
 WORKDIR ${HOME}
 
-RUN mkdir -p ${HOME}/gcode_files ${CONFIG_DIR} ${HOME}/.moonraker ${HOME}/.moonraker_database ${HOME}/.klipper_repo_backup ${HOME}/.moonraker_repo_backup
+RUN mkdir -p ${HOME}/printer_data/gcodes ${HOME}/printer_data/logs ${CONFIG_DIR} ${HOME}/.moonraker ${HOME}/.moonraker_database ${HOME}/.klipper_repo_backup ${HOME}/.moonraker_repo_backup
 
-VOLUME ${HOME}/gcode_files
+VOLUME ${HOME}/printer_data/gcodes
 VOLUME ${CONFIG_DIR}
 
 EXPOSE 7125
